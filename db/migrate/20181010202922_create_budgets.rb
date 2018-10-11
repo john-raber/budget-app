@@ -3,7 +3,6 @@ class CreateBudgets < ActiveRecord::Migration[5.2]
     create_table :budgets do |t|
       t.string :name
       t.belongs_to :user, foreign_key: true
-
       t.timestamps
     end
   end
