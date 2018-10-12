@@ -1,4 +1,3 @@
 class BudgetSerializer < ActiveModel::Serializer
-  attributes :id, :name
-  has_one :user
+  attributes :id, :name, :user_id
 end

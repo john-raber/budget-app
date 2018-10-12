@@ -19,3 +19,7 @@ users.each do |u|
     password_digest: BCrypt::Password.create('hi')
   })
 end
+
+Budget.create({ name: 'john\'s budget', user_id: 1 })
+Budget.create({ name: 'badger\'s budget', user_id: 2 })
+Budget.create({ name: 'walrus\'s budget', user_id: 3 })
