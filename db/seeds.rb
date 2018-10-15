@@ -20,19 +20,33 @@ users.each do |u|
   })
 end
 
-Budget.create({ name: 'john\'s budget', user_id: 1 })
-Budget.create({ name: 'ramen diet', user_id: 1 })
-Budget.create({ name: 'badger\'s budget', user_id: 2 })
-Budget.create({ name: 'walrus\'s budget', user_id: 3 })
+budgets = Budget.create([
+  {
+    name: 'john\'s budget', user_id: 1
+  },
+  {
+    name: 'ramen diet', user_id: 1
+  },
+  {
+    name: 'badger\'s budget', user_id: 2
+  },
+  {
+    name: 'walrus\'s budget', user_id: 3
+  }
+])
 
 accounts = [
   'main savings',
-  'main checking',
+  'buried gold bars',
+  'zombie apocalypse fund',
   'credit card'
 ]
 
-accounts.each do |a|
-  Budget.all.each do |b|
-    Account.create({ nickname: a, budget_id: b.id })
-  end
-end
+Account.create({ nickname: accounts[0], budget_id: 1 })
+Account.create({ nickname: accounts[1], budget_id: 1 })
+Account.create({ nickname: accounts[2], budget_id: 2 })
+Account.create({ nickname: accounts[2], budget_id: 1 })
+Account.create({ nickname: accounts[3], budget_id: 3 })
+Account.create({ nickname: accounts[1], budget_id: 3 })
+Account.create({ nickname: accounts[2], budget_id: 4 })
+Account.create({ nickname: accounts[1], budget_id: 4 })
