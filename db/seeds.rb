@@ -21,5 +21,18 @@ users.each do |u|
 end
 
 Budget.create({ name: 'john\'s budget', user_id: 1 })
+Budget.create({ name: 'ramen diet', user_id: 1 })
 Budget.create({ name: 'badger\'s budget', user_id: 2 })
 Budget.create({ name: 'walrus\'s budget', user_id: 3 })
+
+accounts = [
+  'main savings',
+  'main checking',
+  'credit card'
+]
+
+accounts.each do |a|
+  Budget.all.each do |b|
+    Account.create({ nickname: a, budget_id: b.id })
+  end
+end
