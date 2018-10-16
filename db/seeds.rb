@@ -50,3 +50,65 @@ Account.create({ nickname: accounts[3], budget_id: 3 })
 Account.create({ nickname: accounts[1], budget_id: 3 })
 Account.create({ nickname: accounts[2], budget_id: 4 })
 Account.create({ nickname: accounts[1], budget_id: 4 })
+
+categories = [
+  'food',
+  'utilities',
+  'rent',
+  'student loans',
+  'car payment',
+  'mortgage',
+  'saving'
+]
+
+categories.each do |c|
+  Category.create({ name: c })
+end
+
+budget_categories = BudgetCategory.create([
+  {
+    category_id: 1, budget_id: 1
+  },
+  {
+    category_id: 2, budget_id: 1
+  },
+  {
+    category_id: 3, budget_id: 1
+  },
+  {
+    category_id: 1, budget_id: 2
+  },
+  {
+    category_id: 2, budget_id: 2
+  },
+  {
+    category_id: 5, budget_id: 2
+  },
+  {
+    category_id: 6, budget_id: 2
+  },
+  {
+    category_id: 1, budget_id: 3
+  },
+  {
+    category_id: 4, budget_id: 3
+  },
+  {
+    category_id: 2, budget_id: 3
+  },
+  {
+    category_id: 1, budget_id: 4
+  },
+  {
+    category_id: 2, budget_id: 4
+  },
+  {
+    category_id: 3, budget_id: 4
+  },
+  {
+    category_id: 4, budget_id: 4
+  },
+  {
+    category_id: 7, budget_id: 4
+  },
+])
