@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      resources :budget_categories, only: [:create]
       resources :categories, only: [:create]
       resources :accounts, only: [:create, :index]
       resources :budgets, only: [:create, :index]
