@@ -16,6 +16,6 @@ class Api::V1::BudgetCategoriesController < ApplicationController
   private
 
   def budget_category_params
-    params.require(:budget_category).permit(:budget_id, :category_id)
+    params.require(:budget_category).permit(:budget_id, :category_id, :target)
   end
 end
