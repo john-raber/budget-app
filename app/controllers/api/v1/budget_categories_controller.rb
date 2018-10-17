@@ -1,4 +1,9 @@
 class Api::V1::BudgetCategoriesController < ApplicationController
+  def index
+    @budget_categories = BudgetCategory.all
+    render json: @budget_categories
+  end
+
   def create
     @budget_category = BudgetCategory.create(budget_category_params)
     if @budget_category.valid?
