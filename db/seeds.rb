@@ -67,48 +67,48 @@ end
 
 budget_categories = BudgetCategory.create([
   {
-    category_id: 1, budget_id: 1, target: 200
+    category_id: 1, budget_id: 1, balance: 200.00
   },
   {
-    category_id: 2, budget_id: 1, target: 250
+    category_id: 2, budget_id: 1, balance: 250.00
   },
   {
-    category_id: 3, budget_id: 1, target: 50
+    category_id: 3, budget_id: 1, balance: 50.00
   },
   {
-    category_id: 1, budget_id: 2, target: 58
+    category_id: 1, budget_id: 2, balance: 58.00
   },
   {
-    category_id: 2, budget_id: 2, target: 20
+    category_id: 2, budget_id: 2, balance: 20.00
   },
   {
-    category_id: 5, budget_id: 2, target: 33
+    category_id: 5, budget_id: 2, balance: 33.00
   },
   {
-    category_id: 6, budget_id: 2, target: 200
+    category_id: 6, budget_id: 2, balance: 200.00
   },
   {
-    category_id: 1, budget_id: 3, target: 120
+    category_id: 1, budget_id: 3, balance: 120.00
   },
   {
-    category_id: 4, budget_id: 3, target: 63
+    category_id: 4, budget_id: 3, balance: 63.00
   },
   {
-    category_id: 2, budget_id: 3, target: 49
+    category_id: 2, budget_id: 3, balance: 49.00
   },
   {
-    category_id: 1, budget_id: 4, target: 28
+    category_id: 1, budget_id: 4, balance: 28.00
   },
   {
-    category_id: 2, budget_id: 4, target: 55
+    category_id: 2, budget_id: 4, balance: 55.00
   },
   {
-    category_id: 3, budget_id: 4, target: 87
+    category_id: 3, budget_id: 4, balance: 87.00
   },
   {
-    category_id: 4, budget_id: 4, target: 32
+    category_id: 4, budget_id: 4, balance: 32.00
   },
   {
-    category_id: 7, budget_id: 4, target: 45
+    category_id: 7, budget_id: 4, balance: 45.00
   },
 ])
