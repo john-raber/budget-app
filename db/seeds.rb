@@ -52,63 +52,43 @@ Account.create({ nickname: accounts[2], budget_id: 4 })
 Account.create({ nickname: accounts[1], budget_id: 4 })
 
 categories = [
-  'food',
-  'utilities',
-  'rent',
-  'student loans',
-  'car payment',
-  'mortgage',
-  'saving'
+  {
+    name: 'food',
+    balance: 200.0,
+    budget_id: 1
+  },
+  {
+    name: 'utilities',
+    balance: 165,
+    budget_id: 1
+  },
+  {
+    name: 'rent',
+    balance: 1650,
+    budget_id: 1
+  },
+  {
+    name: 'student loans',
+    balance: 550,
+    budget_id: 2
+  },
+  {
+    name: 'car payment',
+    balance: 400,
+    budget_id: 1
+  },
+  {
+    name: 'mortgage',
+    balance: 927,
+    budget_id: 2
+  },
+  {
+    name: 'saving',
+    balance: 875,
+    budget_id: 1
+  }
 ]
 
 categories.each do |c|
-  Category.create({ name: c })
+  Category.create(c)
 end
-
-budget_categories = BudgetCategory.create([
-  {
-    category_id: 1, budget_id: 1, balance: 200.00
-  },
-  {
-    category_id: 2, budget_id: 1, balance: 250.00
-  },
-  {
-    category_id: 3, budget_id: 1, balance: 50.00
-  },
-  {
-    category_id: 1, budget_id: 2, balance: 58.00
-  },
-  {
-    category_id: 2, budget_id: 2, balance: 20.00
-  },
-  {
-    category_id: 5, budget_id: 2, balance: 33.00
-  },
-  {
-    category_id: 6, budget_id: 2, balance: 200.00
-  },
-  {
-    category_id: 1, budget_id: 3, balance: 120.00
-  },
-  {
-    category_id: 4, budget_id: 3, balance: 63.00
-  },
-  {
-    category_id: 2, budget_id: 3, balance: 49.00
-  },
-  {
-    category_id: 1, budget_id: 4, balance: 28.00
-  },
-  {
-    category_id: 2, budget_id: 4, balance: 55.00
-  },
-  {
-    category_id: 3, budget_id: 4, balance: 87.00
-  },
-  {
-    category_id: 4, budget_id: 4, balance: 32.00
-  },
-  {
-    category_id: 7, budget_id: 4, balance: 45.00
-  },
-])
