@@ -1,4 +1,9 @@
 class Api::V1::TransactionsController < ApplicationController
+  def index
+    @transactions = Transaction.all
+    render json: @transactions
+  end
+
   def create
     @transaction = Transaction.create(transaction_params)
     if @transaction.valid?
