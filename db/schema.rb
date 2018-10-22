@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_10_18_184711) do
   create_table "transactions", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "transaction_type"
     t.decimal "amount"
     t.datetime "date"
     t.bigint "category_id"
