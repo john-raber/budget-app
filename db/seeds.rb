@@ -20,7 +20,7 @@ users.each do |u|
   })
 end
 
-budgets = Budget.create([
+Budget.create([
   {
     name: 'john\'s budget', user_id: 1
   },
