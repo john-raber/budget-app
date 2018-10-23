@@ -2,5 +2,5 @@ class Account < ApplicationRecord
   belongs_to :budget
   has_many :transactions
 
-  validates :nickname, uniqueness: { case_sensitive: false }
+  validates :nickname, uniqueness: { scope: :budget_id, case_sensitive: false }
 end

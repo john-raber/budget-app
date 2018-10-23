@@ -1,4 +1,9 @@
 class Api::V1::TransactionsController < ApplicationController
+  def index
+    @transactions = Transaction.all
+    render json: @transactions
+  end
+
   def create
     @transaction = Transaction.create(transaction_params)
     if @transaction.valid?
@@ -11,6 +16,14 @@ class Api::V1::TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:name, :description, :amount, :date, :account_id, :category_id)
+    params.require(:transaction).permit(
+      :name,
+      :description,
+      :amount,
+      :date,
+      :account_id,
+      :category_id,
+      :transaction_type
+    )
   end
 end

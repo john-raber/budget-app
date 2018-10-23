@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_19_130143) do
+ActiveRecord::Schema.define(version: 2018_10_18_184711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,16 +23,6 @@ ActiveRecord::Schema.define(version: 2018_10_19_130143) do
     t.index ["budget_id"], name: "index_accounts_on_budget_id"
   end
 
-  create_table "budget_categories", force: :cascade do |t|
-    t.bigint "budget_id"
-    t.bigint "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.decimal "balance"
-    t.index ["budget_id"], name: "index_budget_categories_on_budget_id"
-    t.index ["category_id"], name: "index_budget_categories_on_category_id"
-  end
-
   create_table "budgets", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id"
@@ -43,13 +33,17 @@ ActiveRecord::Schema.define(version: 2018_10_19_130143) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.decimal "balance"
+    t.bigint "budget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_categories_on_budget_id"
   end
 
   create_table "transactions", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "transaction_type"
     t.decimal "amount"
     t.datetime "date"
     t.bigint "category_id"
@@ -69,9 +63,8 @@ ActiveRecord::Schema.define(version: 2018_10_19_130143) do
   end
 
   add_foreign_key "accounts", "budgets"
-  add_foreign_key "budget_categories", "budgets"
-  add_foreign_key "budget_categories", "categories"
   add_foreign_key "budgets", "users"
+  add_foreign_key "categories", "budgets"
   add_foreign_key "transactions", "accounts"
   add_foreign_key "transactions", "categories"
 end

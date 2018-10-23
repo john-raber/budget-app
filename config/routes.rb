@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :transactions, only: [:create]
-      resources :budget_categories, only: [:create, :index]
+      resources :transactions, only: [:create, :index]
       resources :categories, only: [:create, :index, :show]
       resources :accounts, only: [:create, :index]
-      resources :budgets, only: [:create, :index]
+      resources :budgets, only: [:create, :index, :show]
       resources :users, only: [:create]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
