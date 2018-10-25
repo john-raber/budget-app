@@ -10,8 +10,8 @@ require 'csv'
 
 users = [
   'john',
-  'volcanicbadger',
-  'grubblingwalrus'
+  'caleb',
+  'greg'
 ]
 
 users.each do |u|
@@ -27,13 +27,10 @@ Budget.create([
     name: 'john\'s budget', user_id: 1
   },
   {
-    name: 'ramen diet', user_id: 1
+    name: 'caleb\'s budget', user_id: 2
   },
   {
-    name: 'badger\'s budget', user_id: 2
-  },
-  {
-    name: 'walrus\'s budget', user_id: 3
+    name: 'greg\'s budget', user_id: 3
   }
 ])
 
@@ -45,10 +42,9 @@ accounts = [
 Account.create({ nickname: accounts[0], budget_id: 1 })
 Account.create({ nickname: accounts[1], budget_id: 1 })
 Account.create({ nickname: accounts[0], budget_id: 2 })
+Account.create({ nickname: accounts[1], budget_id: 2 })
 Account.create({ nickname: accounts[0], budget_id: 3 })
 Account.create({ nickname: accounts[1], budget_id: 3 })
-Account.create({ nickname: accounts[0], budget_id: 4 })
-Account.create({ nickname: accounts[1], budget_id: 4 })
 
 categories = [
   {
@@ -73,13 +69,8 @@ categories = [
   },
   {
     name: 'rent',
-    balance: 1650,
+    balance: 950,
     budget_id: 1
-  },
-  {
-    name: 'student loans',
-    balance: 550,
-    budget_id: 2
   },
   {
     name: 'car payment',
@@ -87,14 +78,79 @@ categories = [
     budget_id: 1
   },
   {
-    name: 'mortgage',
-    balance: 927,
+    name: 'saving',
+    balance: 875,
+    budget_id: 1
+  },
+  {
+    name: 'food',
+    balance: 200.0,
+    budget_id: 2
+  },
+  {
+    name: 'videogames',
+    balance: 150.0,
+    budget_id: 2
+  },
+  {
+    name: 'gas',
+    balance: 60.0,
+    budget_id: 2
+  },
+  {
+    name: 'utilities',
+    balance: 165,
+    budget_id: 2
+  },
+  {
+    name: 'rent',
+    balance: 950,
+    budget_id: 2
+  },
+  {
+    name: 'car payment',
+    balance: 400,
     budget_id: 2
   },
   {
     name: 'saving',
     balance: 875,
-    budget_id: 1
+    budget_id: 2
+  },
+  {
+    name: 'food',
+    balance: 200.0,
+    budget_id: 3
+  },
+  {
+    name: 'videogames',
+    balance: 150.0,
+    budget_id: 3
+  },
+  {
+    name: 'gas',
+    balance: 60.0,
+    budget_id: 3
+  },
+  {
+    name: 'utilities',
+    balance: 165,
+    budget_id: 3
+  },
+  {
+    name: 'rent',
+    balance: 950,
+    budget_id: 3
+  },
+  {
+    name: 'car payment',
+    balance: 400,
+    budget_id: 3
+  },
+  {
+    name: 'saving',
+    balance: 875,
+    budget_id: 3
   }
 ]
 
@@ -130,5 +186,87 @@ CSV.foreach('./db/OctoberTransactions.csv', headers: true) do |row|
     category_id: category_id
   }
 
+  transaction_2 = {
+    name: row[4],
+    description: row[4],
+    date: row[1],
+    amount: row[6],
+    transaction_type: 'expense',
+    account_id: 3,
+    category_id: category_id.to_i + 7
+  }
+
+  transaction_3 = {
+    name: row[4],
+    description: row[4],
+    date: row[1],
+    amount: row[6],
+    transaction_type: 'expense',
+    account_id: 5,
+    category_id: category_id.to_i + 14
+  }
+
   Transaction.create(transaction)
+  Transaction.create(transaction_2)
+  Transaction.create(transaction_3)
 end
+
+Transaction.create({
+  name: 'rent',
+  description: 'October rent',
+  date: '10/01/2018',
+  amount: 950,
+  transaction_type: 'expense',
+  account_id: 1,
+  category_id: 5
+})
+
+Transaction.create({
+  name: 'car payment',
+  description: 'October',
+  date: '10/15/2018',
+  amount: 400,
+  transaction_type: 'expense',
+  account_id: 1,
+  category_id: 6
+})
+
+Transaction.create({
+  name: 'rent',
+  description: 'October rent',
+  date: '10/01/2018',
+  amount: 950,
+  transaction_type: 'expense',
+  account_id: 3,
+  category_id: 12
+})
+
+Transaction.create({
+  name: 'car payment',
+  description: 'October',
+  date: '10/15/2018',
+  amount: 400,
+  transaction_type: 'expense',
+  account_id: 3,
+  category_id: 13
+})
+
+Transaction.create({
+  name: 'rent',
+  description: 'October rent',
+  date: '10/01/2018',
+  amount: 950,
+  transaction_type: 'expense',
+  account_id: 5,
+  category_id: 19
+})
+
+Transaction.create({
+  name: 'car payment',
+  description: 'October',
+  date: '10/15/2018',
+  amount: 400,
+  transaction_type: 'expense',
+  account_id: 5,
+  category_id: 20
+})
